@@ -9,7 +9,8 @@ class MechBuilder {
             booster: null,
             legs: null,
             core: null,
-            arms: null,
+            rightArms: null,
+            leftArms: null,
             head: null,
             expansion1: null,
             expansion2: null,
@@ -84,12 +85,15 @@ class MechBuilder {
         });
 
         // Arms
-        const armsSelect = document.getElementById('arms');
-        AC6_DATA.arms.forEach(arms => {
-            const option = document.createElement('option');
-            option.value = arms.id;
-            option.textContent = arms.name;
-            armsSelect.appendChild(option);
+        const rightArmsSelect = document.getElementById('rightArms');
+        const leftArmsSelect = document.getElementById('leftArms');
+        [rightArmsSelect, leftArmsSelect].forEach(select => {
+            AC6_DATA.arms.forEach(arms => {
+                const option = document.createElement('option');
+                option.value = arms.id;
+                option.textContent = arms.name;
+                select.appendChild(option);
+            });
         });
 
         // Heads
@@ -228,7 +232,7 @@ class MechBuilder {
 
     attachEventListeners() {
         // Part selection listeners
-        const partSelects = ['generator', 'fcs', 'booster', 'legs', 'core', 'arms', 'head',
+        const partSelects = ['generator', 'fcs', 'booster', 'legs', 'core', 'rightArms', 'leftArms', 'head',
                              'expansion1', 'expansion2', 'rightArm', 'leftArm', 'rightBack', 'leftBack'];
 
         partSelects.forEach(id => {
@@ -277,7 +281,8 @@ class MechBuilder {
             case 'core':
                 part = AC6_DATA.cores.find(p => p.id === partId);
                 break;
-            case 'arms':
+            case 'rightArms':
+            case 'leftArms':
                 part = AC6_DATA.arms.find(p => p.id === partId);
                 break;
             case 'head':
@@ -399,13 +404,15 @@ class MechBuilder {
         // Add HP from parts
         if (this.currentBuild.legs) totalHP += this.currentBuild.legs.hp;
         if (this.currentBuild.core) totalHP += this.currentBuild.core.hp;
-        if (this.currentBuild.arms) totalHP += this.currentBuild.arms.hp;
+        if (this.currentBuild.rightArms) totalHP += this.currentBuild.rightArms.hp;
+        if (this.currentBuild.leftArms) totalHP += this.currentBuild.leftArms.hp;
         if (this.currentBuild.head) totalHP += this.currentBuild.head.hp;
 
         // Add AC from parts
         if (this.currentBuild.legs) totalAC += this.currentBuild.legs.ac;
         if (this.currentBuild.core) totalAC += this.currentBuild.core.ac;
-        if (this.currentBuild.arms) totalAC += this.currentBuild.arms.ac;
+        if (this.currentBuild.rightArms) totalAC += this.currentBuild.rightArms.ac;
+        if (this.currentBuild.leftArms) totalAC += this.currentBuild.leftArms.ac;
         if (this.currentBuild.head) totalAC += this.currentBuild.head.ac;
 
         // Add Prone Resistance
@@ -443,7 +450,8 @@ class MechBuilder {
         if (this.currentBuild.booster) totalENLoad += this.currentBuild.booster.enLoad;
         if (this.currentBuild.legs) totalENLoad += this.currentBuild.legs.enLoad;
         if (this.currentBuild.core) totalENLoad += this.currentBuild.core.enLoad;
-        if (this.currentBuild.arms) totalENLoad += this.currentBuild.arms.enLoad;
+        if (this.currentBuild.rightArms) totalENLoad += this.currentBuild.rightArms.enLoad;
+        if (this.currentBuild.leftArms) totalENLoad += this.currentBuild.leftArms.enLoad;
         if (this.currentBuild.head) totalENLoad += this.currentBuild.head.enLoad;
         if (this.currentBuild.rightArm) totalENLoad += this.currentBuild.rightArm.enLoad;
         if (this.currentBuild.leftArm) totalENLoad += this.currentBuild.leftArm.enLoad;
@@ -478,7 +486,8 @@ class MechBuilder {
         if (this.currentBuild.booster) totalWeight += this.currentBuild.booster.weight;
         if (this.currentBuild.legs) totalWeight += this.currentBuild.legs.weight;
         if (this.currentBuild.core) totalWeight += this.currentBuild.core.weight;
-        if (this.currentBuild.arms) totalWeight += this.currentBuild.arms.weight;
+        if (this.currentBuild.rightArms) totalWeight += this.currentBuild.rightArms.weight;
+        if (this.currentBuild.leftArms) totalWeight += this.currentBuild.leftArms.weight;
         if (this.currentBuild.head) totalWeight += this.currentBuild.head.weight;
         if (this.currentBuild.rightArm) totalWeight += this.currentBuild.rightArm.weight;
         if (this.currentBuild.leftArm) totalWeight += this.currentBuild.leftArm.weight;
@@ -518,8 +527,10 @@ class MechBuilder {
 
     updateTargeting() {
         const fcs = this.currentBuild.fcs;
-        const arms = this.currentBuild.arms;
+        const rightArms = this.currentBuild.rightArms;
+        const leftArms = this.currentBuild.leftArms;
 
+        // FCS bonuses (range-based)
         if (fcs) {
             document.getElementById('closeBonus').textContent = this.formatBonus(fcs.close);
             document.getElementById('mediumBonus').textContent = this.formatBonus(fcs.medium);
@@ -532,15 +543,26 @@ class MechBuilder {
             document.getElementById('missileBonus').textContent = '+0';
         }
 
-        if (arms) {
-            document.getElementById('firearmsBonus').textContent = this.formatBonus(arms.fireSpec);
-            document.getElementById('meleeBonus').textContent = this.formatBonus(arms.meleeSpec);
-            document.getElementById('recoilBonus').textContent = this.formatBonus(arms.recoilCtrl);
-        } else {
-            document.getElementById('firearmsBonus').textContent = '+0';
-            document.getElementById('meleeBonus').textContent = '+0';
-            document.getElementById('recoilBonus').textContent = '+0';
+        // Arms bonuses (use maximum from either arm for each weapon type)
+        let firearmsBonus = 0;
+        let meleeBonus = 0;
+        let heavyBonus = 0; // Recoil control for heavy weapons (machine guns, bazookas, grenade launchers)
+
+        if (rightArms) {
+            firearmsBonus = Math.max(firearmsBonus, rightArms.fireSpec || 0);
+            meleeBonus = Math.max(meleeBonus, rightArms.meleeSpec || 0);
+            heavyBonus = Math.max(heavyBonus, rightArms.recoilCtrl || 0);
         }
+
+        if (leftArms) {
+            firearmsBonus = Math.max(firearmsBonus, leftArms.fireSpec || 0);
+            meleeBonus = Math.max(meleeBonus, leftArms.meleeSpec || 0);
+            heavyBonus = Math.max(heavyBonus, leftArms.recoilCtrl || 0);
+        }
+
+        document.getElementById('firearmsBonus').textContent = this.formatBonus(firearmsBonus);
+        document.getElementById('meleeBonus').textContent = this.formatBonus(meleeBonus);
+        document.getElementById('heavyBonus').textContent = this.formatBonus(heavyBonus);
     }
 
     updateWeapons() {
@@ -725,7 +747,7 @@ class MechBuilder {
         const warnings = [];
 
         // Check if all required parts are equipped
-        const requiredParts = ['generator', 'fcs', 'booster', 'legs', 'core', 'arms', 'head'];
+        const requiredParts = ['generator', 'fcs', 'booster', 'legs', 'core', 'rightArms', 'leftArms', 'head'];
         const missingParts = requiredParts.filter(part => !this.currentBuild[part]);
 
         if (missingParts.length > 0) {
@@ -858,7 +880,8 @@ class MechBuilder {
             booster: this.currentBuild.booster?.id,
             legs: this.currentBuild.legs?.id,
             core: this.currentBuild.core?.id,
-            arms: this.currentBuild.arms?.id,
+            rightArms: this.currentBuild.rightArms?.id,
+            leftArms: this.currentBuild.leftArms?.id,
             head: this.currentBuild.head?.id,
             expansion1: this.currentBuild.expansion1?.id,
             expansion2: this.currentBuild.expansion2?.id,
@@ -905,7 +928,7 @@ class MechBuilder {
         document.getElementById('acName').value = buildData.name || '';
 
         // Set all parts
-        const parts = ['generator', 'fcs', 'booster', 'legs', 'core', 'arms', 'head',
+        const parts = ['generator', 'fcs', 'booster', 'legs', 'core', 'rightArms', 'leftArms', 'head',
                        'expansion1', 'expansion2', 'rightArm', 'leftArm', 'rightBack', 'leftBack'];
 
         parts.forEach(part => {
