@@ -215,17 +215,53 @@ class MechBuilder {
             });
             select.appendChild(meleeGroup);
 
-            // Back weapons only for back slots
-            if (selectId.includes('Back')) {
-                const backGroup = document.createElement('optgroup');
-                backGroup.label = 'BACK WEAPONS';
-                AC6_DATA.weapons.backWeapons.forEach(w => {
+            // Special weapons (only for arm slots)
+            if (!selectId.includes('Back')) {
+                const specialGroup = document.createElement('optgroup');
+                specialGroup.label = 'SPECIAL';
+                AC6_DATA.weapons.specialWeapons.forEach(w => {
                     const option = document.createElement('option');
                     option.value = w.id;
                     option.textContent = w.name;
-                    backGroup.appendChild(option);
+                    specialGroup.appendChild(option);
                 });
-                select.appendChild(backGroup);
+                select.appendChild(specialGroup);
+            }
+
+            // Back weapons only for back slots
+            if (selectId.includes('Back')) {
+                // Heavy Cannons
+                const cannonGroup = document.createElement('optgroup');
+                cannonGroup.label = 'HEAVY CANNONS';
+                AC6_DATA.weapons.backWeapons.heavyCannons.forEach(w => {
+                    const option = document.createElement('option');
+                    option.value = w.id;
+                    option.textContent = w.name;
+                    cannonGroup.appendChild(option);
+                });
+                select.appendChild(cannonGroup);
+
+                // Missiles
+                const missileGroup = document.createElement('optgroup');
+                missileGroup.label = 'MISSILES';
+                AC6_DATA.weapons.backWeapons.missiles.forEach(w => {
+                    const option = document.createElement('option');
+                    option.value = w.id;
+                    option.textContent = w.name;
+                    missileGroup.appendChild(option);
+                });
+                select.appendChild(missileGroup);
+
+                // Shields
+                const shieldGroup = document.createElement('optgroup');
+                shieldGroup.label = 'SHIELDS';
+                AC6_DATA.weapons.backWeapons.shields.forEach(w => {
+                    const option = document.createElement('option');
+                    option.value = w.id;
+                    option.textContent = w.name;
+                    shieldGroup.appendChild(option);
+                });
+                select.appendChild(shieldGroup);
             }
         });
     }
@@ -319,8 +355,17 @@ class MechBuilder {
 
     findWeapon(id) {
         for (let category in AC6_DATA.weapons) {
-            const found = AC6_DATA.weapons[category].find(w => w.id === id);
-            if (found) return found;
+            // Handle backWeapons which is now an object with subcategories
+            if (category === 'backWeapons') {
+                for (let subCategory in AC6_DATA.weapons.backWeapons) {
+                    const found = AC6_DATA.weapons.backWeapons[subCategory].find(w => w.id === id);
+                    if (found) return found;
+                }
+            } else {
+                // Regular weapon categories are arrays
+                const found = AC6_DATA.weapons[category].find(w => w.id === id);
+                if (found) return found;
+            }
         }
         return null;
     }
