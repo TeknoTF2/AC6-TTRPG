@@ -166,11 +166,17 @@ const AC6_DATA = {
             { id: 'RF-024TURNER', name: 'RF-024 TURNER', damage: 72, range: 800, ammo: 80, fireRate: 'Standard', type: 'Kinetic', weight: 2800, enLoad: 80, special: 'Starter assault rifle, reliable, cheap', category: 'Rifle' },
             { id: 'RF-025SCUDDER', name: 'RF-025 SCUDDER', damage: 85, range: 850, ammo: 70, fireRate: 'Standard', type: 'Kinetic', weight: 3200, enLoad: 95, special: 'Upgraded assault rifle, higher damage', category: 'Rifle' },
             { id: 'MA-J-200RANSETSU-RF', name: 'MA-J-200 RANSETSU-RF', damage: 78, range: 750, ammo: 60, fireRate: '3-Round Burst', type: 'Kinetic', weight: 3400, enLoad: 100, special: 'Burst rifle, 3 shots (234 total), BAWS', category: 'Rifle' },
+            { id: 'MA-J-201RANSETSU-AR', name: 'MA-J-201 RANSETSU-AR', damage: 82, range: 800, ammo: 65, fireRate: '3-Round Burst', type: 'Kinetic', weight: 3600, enLoad: 110, special: 'Burst assault, 3 shots (246 total), BAWS', category: 'Rifle' },
             { id: 'LR-036CURTIS', name: 'LR-036 CURTIS', damage: 145, range: 1200, ammo: 24, fireRate: 'Charged Shot', type: 'Kinetic (Railgun)', weight: 4200, enLoad: 140, special: 'Charge: 290 dmg railgun shot, massive stagger', category: 'Rifle' },
             { id: 'LR-037HARRIS', name: 'LR-037 HARRIS', damage: 158, range: 1300, ammo: 20, fireRate: 'Charged Shot', type: 'Kinetic (Railgun)', weight: 4600, enLoad: 150, special: 'Elite railgun, charge: 316 dmg', category: 'Rifle' },
             { id: 'VP-66LR', name: 'VP-66LR', damage: 92, range: 1000, ammo: 0, fireRate: 'Charged Shot', type: 'Energy (Laser)', weight: 3800, enLoad: 190, enCost: 240, special: 'Charge: 184 dmg laser beam, 240 EN/shot, Arquebus', category: 'Rifle' },
             { id: 'VE-66LRA', name: 'VE-66LRA', damage: 102, range: 1100, ammo: 0, fireRate: 'Charged Shot', type: 'Energy (Laser)', weight: 4100, enLoad: 205, enCost: 280, special: 'Heavy laser, charge: 204 dmg, 280 EN/shot', category: 'Rifle' },
-            { id: 'VE-66LRB', name: 'VE-66LRB', damage: 108, range: 1150, ammo: 0, fireRate: 'Charged Shot', type: 'Energy (Laser)', weight: 4400, enLoad: 220, enCost: 300, special: 'Elite laser, charge: 216 dmg, 300 EN/shot', category: 'Rifle' }
+            { id: 'VE-66LRB', name: 'VE-66LRB', damage: 108, range: 1150, ammo: 0, fireRate: 'Charged Shot', type: 'Energy (Laser)', weight: 4400, enLoad: 220, enCost: 300, special: 'Elite laser, charge: 216 dmg, 300 EN/shot', category: 'Rifle' },
+            { id: 'Vvc-760PR', name: 'Vvc-760PR', damage: 98, range: 900, ammo: 0, fireRate: 'Charged (AoE)', type: 'Energy (Plasma)', weight: 4000, enLoad: 210, enCost: 260, special: 'Plasma explosions, charge: AoE blast, 260 EN/shot, VCPL', category: 'Rifle' },
+            { id: 'IA-C01W1NEBULA', name: 'IA-C01W1: NEBULA', damage: 105, range: 950, ammo: 0, fireRate: 'Charged (AoE)', type: 'Energy (Plasma/Coral)', weight: 4200, enLoad: 225, enCost: 280, special: 'Coral plasma, charge: multi-explosion, 280 EN/shot, Hidden', category: 'Rifle' },
+            { id: '44-142KRSV', name: '44-142 KRSV', damage: 88, range: 950, ammo: 0, fireRate: 'Dual Mode', type: 'Energy (Laser+Plasma)', weight: 4500, enLoad: 240, enCost: 240, special: 'Plasma shot OR charge laser, full charge: both (320 total), ALLMIND', category: 'Rifle' },
+            { id: 'IA-C01W6NB-REDSHIFT', name: 'IA-C01W6: NB-REDSHIFT', damage: 118, range: 1100, ammo: 0, fireRate: 'Chain Explosion', type: 'Energy (Coral)', weight: 4800, enLoad: 280, enCost: 280, special: 'Plasma shot → chain explosions (236 total), NG++', category: 'Rifle' },
+            { id: 'IB-C03W1WLT011', name: 'IB-C03W1: WLT 011', damage: 125, range: 1200, ammo: 0, fireRate: 'Sweep Beam', type: 'Energy (Coral)', weight: 5200, enLoad: 300, enCost: 300, special: 'Charge: massive Coral beam sweep (375 dmg), NG++', category: 'Rifle' }
         ],
         shotguns: [
             { id: 'SG-026HALDEMAN', name: 'SG-026 HALDEMAN', damage: 140, range: 250, ammo: 66, fireRate: 'Standard', type: 'Kinetic', weight: 3660, enLoad: 185, special: 'Wide spread, Balam', category: 'Shotgun' },
@@ -195,12 +201,15 @@ const AC6_DATA = {
             { id: 'DF-GR-07GOU-CHEN', name: 'DF-GR-07 GOU-CHEN', damage: 340, range: 600, ammo: 40, fireRate: 'Single Shot', type: 'Explosive', weight: 4800, enLoad: 340, aoe: 40, special: 'Starter, most ammo, arc trajectory, Dafeng', category: 'Grenade Launcher' },
             { id: 'DIZZY', name: 'DIZZY', damage: 370, range: 550, ammo: 28, fireRate: 'Single Shot', type: 'Explosive', weight: 5600, enLoad: 380, aoe: 55, special: 'Largest blast radius, heavy, arc trajectory, Melinite', category: 'Grenade Launcher' },
             { id: 'IRIDIUM', name: 'IRIDIUM', damage: 350, range: 580, ammo: 24, fireRate: 'Single Shot', type: 'Explosive', weight: 3400, enLoad: 285, aoe: 40, special: 'Lightest grenade launcher, speed builds, Melinite', category: 'Grenade Launcher' },
-            { id: 'MA-T-222KYORAI', name: 'MA-T-222 KYORAI', damage: 280, range: 550, ammo: 36, fireRate: 'Single Shot', type: 'Fire', weight: 4200, enLoad: 310, aoe: 35, special: 'Napalm bomber, leaves fire DOT, arc trajectory, BAWS', category: 'Grenade Launcher' }
+            { id: 'MA-T-222KYORAI', name: 'MA-T-222 KYORAI', damage: 280, range: 550, ammo: 36, fireRate: 'Single Shot', type: 'Fire', weight: 4200, enLoad: 310, aoe: 35, special: 'Napalm bomber, leaves fire DOT, arc trajectory, BAWS', category: 'Grenade Launcher' },
+            { id: 'MA-T-223KYORIKU', name: 'MA-T-223 KYORIKU', damage: 30, range: 520, ammo: 45, fireRate: 'Single Shot', type: 'Special', weight: 3800, enLoad: 295, aoe: 40, special: 'Jamming bomber, disrupts targeting, smoke cloud, BAWS', category: 'Grenade Launcher' },
+            { id: 'WS-1200THERAPIST', name: 'WS-1200 THERAPIST', damage: 200, range: 540, ammo: 32, fireRate: 'Single Shot', type: 'Special', weight: 4400, enLoad: 320, aoe: 40, special: 'Stun bomber, disables enemies, arc trajectory, Schneider', category: 'Grenade Launcher' }
         ],
         missileLaunchers: [
             { id: 'HML-G2/P19MLT-04', name: 'HML-G2/P19 MLT-04', damage: 140, range: 800, ammo: 48, fireRate: '4-lock', type: 'Explosive', weight: 4200, enLoad: 380, special: 'Standard multi-lock, balanced, Furlong', category: 'Missile Launcher' },
             { id: 'PFAU/66D', name: 'PFAU/66D', damage: 130, range: 850, ammo: 54, fireRate: '6-lock', type: 'Energy', weight: 3800, enLoad: 420, aoe: 20, special: 'Plasma missiles, AoE splash, lightweight, Schneider', category: 'Missile Launcher' },
-            { id: 'WS-5000APERITIF', name: 'WS-5000 APERITIF', damage: 180, range: 750, ammo: 36, fireRate: '4-lock', type: 'Explosive', weight: 5400, enLoad: 395, special: 'Siege missiles, high damage, slower tracking, RaD', category: 'Missile Launcher' }
+            { id: 'WS-5000APERITIF', name: 'WS-5000 APERITIF', damage: 180, range: 750, ammo: 36, fireRate: '4-lock', type: 'Explosive', weight: 5400, enLoad: 395, special: 'Siege missiles, high damage, slower tracking, RaD', category: 'Missile Launcher' },
+            { id: 'HML-G3/P08SPL-06', name: 'HML-G3/P08 SPL-06', damage: 120, range: 820, ammo: 42, fireRate: '6-lock', type: 'Explosive', weight: 4600, enLoad: 405, special: 'Split missiles, each splits into 2 submunitions (240 total), Furlong', category: 'Missile Launcher' }
         ],
         melee: [
             { id: 'PB-033MASHMEAD', name: 'PB-033M ASHMEAD', damage: 850, range: 'Melee', ammo: 0, fireRate: 'Charge', type: 'Kinetic', weight: 3900, enLoad: 135, special: 'Pile bunker, highest single-hit damage, Balam', category: 'Melee' },
@@ -208,18 +217,75 @@ const AC6_DATA = {
             { id: 'VP-67EB', name: 'VP-67EB', damage: 380, range: 'Melee', ammo: 0, fireRate: 'Quick', type: 'Energy', weight: 2800, enLoad: 180, special: 'Stun baton, electric discharge, Arquebus', category: 'Melee' },
             { id: 'VP-67LD', name: 'VP-67LD', damage: 420, range: 'Melee', ammo: 0, fireRate: 'Fast', type: 'Energy', weight: 2400, enLoad: 160, special: 'Laser dagger, lightest melee, quick strikes, Arquebus', category: 'Melee' },
             { id: 'Vvc-770LB', name: 'Vvc-770LB', damage: 560, range: 'Melee', ammo: 0, fireRate: 'Combo', type: 'Energy', weight: 3600, enLoad: 220, chargedDamage: 750, special: 'Laser blade, standard sword, combo attacks, VCPL', category: 'Melee' },
+            { id: 'Vvc-774LS', name: 'Vvc-774LS', damage: 480, range: 'Melee', ammo: 0, fireRate: 'Rapid', type: 'Energy', weight: 3200, enLoad: 195, special: 'Laser slicer, fast attacks, rapid strikes, VCPL', category: 'Melee' },
+            { id: 'VE-67LLA', name: 'VE-67LLA', damage: 680, range: '20 ft', ammo: 0, fireRate: 'Charge', type: 'Energy', weight: 4100, enLoad: 250, special: 'Laser lance, charging thrust, reach, Arquebus', category: 'Melee' },
+            { id: 'HI-32:BU-TT/A', name: 'HI-32: BU-TT/A', damage: 520, range: 'Melee', ammo: 0, fireRate: 'Standard', type: 'Energy', weight: 3100, enLoad: 205, chargedDamage: 640, special: 'Pulse blade, starter melee, reliable, Takigawa', category: 'Melee' },
             { id: 'IA-C01W2:MOONLIGHT', name: 'IA-C01W2: MOONLIGHT', damage: 620, range: '30 ft wave', ammo: 0, fireRate: 'Wave', type: 'Energy', weight: 4500, enLoad: 280, chargedDamage: 820, special: 'Iconic laser sword, ranged wave, Rubicon Research', category: 'Melee' }
         ],
-        backWeapons: [
-            { id: 'BML-G1/P20MLT-04', name: 'BML-G1/P20 MLT-04', damage: 85, range: 600, ammo: 80, fireRate: 'Multi', type: 'Explosive', weight: 4200, enLoad: 380, lockCount: 4, special: 'Standard missiles', category: 'Back Weapon' },
-            { id: 'DF-GA-09SHAO-WEI', name: 'DF-GA-09 SHAO-WEI', damage: 95, range: 400, ammo: 800, fireRate: 'Full Auto', type: 'Kinetic', weight: 7800, enLoad: 420, special: 'Gatling cannon, sustained fire', category: 'Back Weapon' },
-            { id: 'SB-033MMORLEY', name: 'SB-033M MORLEY', damage: 340, range: 300, ammo: 24, fireRate: 'Single', type: 'Explosive', weight: 8400, enLoad: 465, special: 'Spread bazooka, shotgun pattern', category: 'Back Weapon' },
-            { id: 'VP-60LCS', name: 'VP-60LCS', damage: 230, range: 500, ammo: 32, fireRate: 'Charge', type: 'Energy', weight: 5200, enLoad: 680, enCost: 300, special: 'Laser cannon, chargeable', category: 'Back Weapon' },
-            { id: 'FASAN/60E', name: 'FASAN/60E', damage: 390, range: 450, ammo: 39, fireRate: 'Charge', type: 'Energy', weight: 6300, enLoad: 880, enCost: 350, special: 'Plasma cannon, explosion on hit', category: 'Back Weapon' },
-            { id: 'SI-24:SU-Q5', name: 'SI-24: SU-Q5', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 3200, enLoad: 520, enCost: 60, special: 'Reduce dmg by 180, 2 round recharge', category: 'Shield' },
-            { id: 'VP-61PS', name: 'VP-61PS', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 3600, enLoad: 580, enCost: 80, special: 'Reduce dmg by 250, 2 round recharge', category: 'Shield' },
-            { id: 'SI-27:SU-R8', name: 'SI-27: SU-R8', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 4800, enLoad: 680, enCost: 140, special: 'Reduce dmg by 450, 3 round recharge', category: 'Shield' }
-        ]
+        specialWeapons: [
+            { id: 'WB-0000BADCOOK', name: 'WB-0000 BAD COOK', damage: 90, range: '60 ft cone', ammo: 180, fireRate: 'Stream', type: 'Fire', weight: 2600, enLoad: 155, special: 'Flamethrower, cone AOE, DOT vs staggered, BAWS', category: 'Special' },
+            { id: 'DF-ET-09TAI-YANG-SHIO', name: 'DF-ET-09 TAI-YANG-SHIO', damage: 280, range: 150, ammo: 60, fireRate: 'Auto', type: 'Explosive', weight: 3400, enLoad: 220, aoe: 25, special: 'Explosive thrower, close range spray, Dafeng', category: 'Special' },
+            { id: '44-143HMMR', name: '44-143 HMMR', damage: 240, range: 120, ammo: 0, fireRate: 'EN', type: 'Energy', weight: 3200, enLoad: 340, enCost: 340, aoe: 30, special: 'Plasma thrower, AoE blasts, EN powered, ALLMIND', category: 'Special' },
+            { id: 'EL-PW-00VIENTO', name: 'EL-PW-00 VIENTO', damage: 105, range: 350, ammo: 90, fireRate: 'Full Auto', type: 'Kinetic', weight: 1800, enLoad: 95, special: 'Needle gun, rapid piercing, high stagger, Elcano', category: 'Special' },
+            { id: 'VP-66EG', name: 'VP-66EG', damage: 75, range: 200, ammo: 0, fireRate: 'EN', type: 'Energy', weight: 1600, enLoad: 125, enCost: 125, special: 'Stun gun, electric discharge, utility weapon, Arquebus', category: 'Special' },
+            { id: 'IA-C01W7:ML-REDSHIFT', name: 'IA-C01W7: ML-REDSHIFT', damage: 420, range: 250, ammo: 0, fireRate: 'Charge', type: 'Coral', weight: 4800, enLoad: 380, enCost: 380, special: 'Coral oscillator, energy burst, Rubicon Research', category: 'Special' },
+            { id: 'IB-C03W2:WLT101', name: 'IB-C03W2: WLT 101', damage: 450, range: 'Melee', ammo: 0, fireRate: 'Melee', type: 'Coral', weight: 5200, enLoad: 420, enCost: 420, special: 'Coral oscillator, contact explosion, Rubicon Research', category: 'Special' }
+        ],
+        backWeapons: {
+            heavyCannons: [
+                { id: 'DF-GA-09SHAO-WEI', name: 'DF-GA-09 SHAO-WEI', damage: 95, range: 400, ammo: 800, fireRate: 'Full Auto', type: 'Kinetic', weight: 7800, enLoad: 420, special: 'Gatling cannon, sustained fire', category: 'Heavy Cannon' },
+                { id: 'SB-033MMORLEY', name: 'SB-033M MORLEY', damage: 340, range: 300, ammo: 24, fireRate: 'Single', type: 'Explosive', weight: 8400, enLoad: 465, special: 'Spread bazooka, shotgun pattern', category: 'Heavy Cannon' },
+                { id: 'EARSHOT', name: 'EARSHOT', damage: 520, range: 450, ammo: 16, fireRate: 'Slow', type: 'Explosive', weight: 7200, enLoad: 388, special: 'Grenade cannon, high impact', category: 'Heavy Cannon' },
+                { id: 'SONGBIRDS', name: 'SONGBIRDS', damage: 380, range: 400, ammo: 42, fireRate: 'Burst', type: 'Explosive', weight: 5500, enLoad: 285, special: 'Dual grenade cannon', category: 'Heavy Cannon' },
+                { id: 'VE-60SNA', name: 'VE-60SNA', damage: 270, range: 350, ammo: 30, fireRate: 'Single', type: 'Energy', weight: 6100, enLoad: 825, special: 'Stun needle, shield breaker', category: 'Heavy Cannon' },
+                { id: 'VP-60LCS', name: 'VP-60LCS', damage: 230, range: 500, ammo: 32, fireRate: 'Charge', type: 'Energy', weight: 5200, enLoad: 680, enCost: 300, special: 'Laser cannon, chargeable', category: 'Heavy Cannon' },
+                { id: 'VE-60LCA', name: 'VE-60LCA', damage: 280, range: 550, ammo: 28, fireRate: 'Charge', type: 'Energy', weight: 6800, enLoad: 890, enCost: 350, special: 'Heavy laser cannon', category: 'Heavy Cannon' },
+                { id: 'VE-60LCB', name: 'VE-60LCB', damage: 310, range: 500, ammo: 24, fireRate: 'Charge', type: 'Energy', weight: 6500, enLoad: 850, enCost: 350, special: 'Burst laser cannon', category: 'Heavy Cannon' },
+                { id: 'VP-60LCD', name: 'VP-60LCD', damage: 260, range: 400, ammo: 28, fireRate: 'Charge', type: 'Energy', weight: 7600, enLoad: 780, enCost: 300, special: 'Diffuse laser, wider spread', category: 'Heavy Cannon' },
+                { id: 'FASAN/60E', name: 'FASAN/60E', damage: 390, range: 450, ammo: 39, fireRate: 'Charge', type: 'Energy', weight: 6300, enLoad: 880, enCost: 350, special: 'Plasma cannon, explosion on hit', category: 'Heavy Cannon' },
+                { id: 'KRANICH/60Z', name: 'KRANICH/60Z', damage: 230, range: 400, ammo: 42, fireRate: 'Full Auto', type: 'Energy', weight: 5200, enLoad: 650, special: 'Pulse cannon', category: 'Heavy Cannon' },
+                { id: 'EULE/60D', name: 'EULE/60D', damage: 0, range: 0, ammo: 0, fireRate: 'Deploy', type: 'Energy', weight: 4800, enLoad: 720, special: 'Pulse shield launcher, deployable barrier', category: 'Heavy Cannon' },
+                { id: 'IA-C01W3:AURORA', name: 'IA-C01W3: AURORA', damage: 480, range: 600, ammo: 18, fireRate: 'Charge', type: 'Coral', weight: 8100, enLoad: 950, enCost: 380, special: 'Light wave cannon, coral damage', category: 'Heavy Cannon' }
+            ],
+            missiles: [
+                { id: 'BML-G1/P20MLT-04', name: 'BML-G1/P20 MLT-04', damage: 85, range: 600, ammo: 80, fireRate: 'Multi', type: 'Explosive', weight: 4200, enLoad: 380, lockCount: 4, special: 'Standard missiles', category: 'Missile' },
+                { id: 'BML-G2/P03MLT-06', name: 'BML-G2/P03 MLT-06', damage: 120, range: 650, ammo: 60, fireRate: 'Multi', type: 'Explosive', weight: 4800, enLoad: 420, lockCount: 3, special: 'Medium missiles', category: 'Missile' },
+                { id: 'BML-G2/P05MLT-10', name: 'BML-G2/P05 MLT-10', damage: 95, range: 700, ammo: 100, fireRate: 'Multi', type: 'Explosive', weight: 5400, enLoad: 480, lockCount: 5, special: 'High capacity', category: 'Missile' },
+                { id: 'BML-G2/P19SPL-12', name: 'BML-G2/P19 SPL-12', damage: 55, range: 500, ammo: 72, fireRate: 'Multi', type: 'Explosive', weight: 4600, enLoad: 350, lockCount: 12, special: 'Split missiles, scatter pattern', category: 'Missile' },
+                { id: 'BML-G2/P16SPL-08', name: 'BML-G2/P16 SPL-08', damage: 70, range: 550, ammo: 64, fireRate: 'Multi', type: 'Explosive', weight: 4200, enLoad: 320, lockCount: 8, special: 'Split missiles', category: 'Missile' },
+                { id: 'BML-G2/P17SPL-16', name: 'BML-G2/P17 SPL-16', damage: 50, range: 500, ammo: 96, fireRate: 'Multi', type: 'Explosive', weight: 5000, enLoad: 385, lockCount: 16, special: 'Maximum split count', category: 'Missile' },
+                { id: 'BML-G1/P31DUO-02', name: 'BML-G1/P31 DUO-02', damage: 180, range: 600, ammo: 40, fireRate: 'Multi', type: 'Explosive', weight: 5800, enLoad: 450, lockCount: 2, special: 'Dual heavy missiles', category: 'Missile' },
+                { id: 'BML-G1/P32DUO-03', name: 'BML-G1/P32 DUO-03', damage: 210, range: 650, ammo: 36, fireRate: 'Multi', type: 'Explosive', weight: 6200, enLoad: 490, lockCount: 2, special: 'Dual missiles, high damage', category: 'Missile' },
+                { id: 'BML-G2/P08DUO-03', name: 'BML-G2/P08 DUO-03', damage: 190, range: 700, ammo: 48, fireRate: 'Multi', type: 'Explosive', weight: 6500, enLoad: 520, lockCount: 2, special: 'Dual missiles, long range', category: 'Missile' },
+                { id: 'BML-G1/P01VTC-04', name: 'BML-G1/P01 VTC-04', damage: 110, range: 550, ammo: 60, fireRate: 'Multi', type: 'Explosive', weight: 4800, enLoad: 410, lockCount: 4, special: 'Vertical launch', category: 'Missile' },
+                { id: 'BML-G1/P03VTC-08', name: 'BML-G1/P03 VTC-08', damage: 100, range: 550, ammo: 80, fireRate: 'Multi', type: 'Explosive', weight: 5400, enLoad: 460, lockCount: 8, special: 'Vertical swarm', category: 'Missile' },
+                { id: 'BML-G1/P07VTC-12', name: 'BML-G1/P07 VTC-12', damage: 85, range: 550, ammo: 96, fireRate: 'Multi', type: 'Explosive', weight: 6000, enLoad: 525, lockCount: 12, special: 'Maximum vertical missiles', category: 'Missile' },
+                { id: 'BML-G3/P04ACT-01', name: 'BML-G3/P04 ACT-01', damage: 140, range: 700, ammo: 40, fireRate: 'Active', type: 'Explosive', weight: 4500, enLoad: 380, special: 'Active homing, tracks target', category: 'Missile' },
+                { id: 'BML-G3/P05ACT-02', name: 'BML-G3/P05 ACT-02', damage: 170, range: 750, ammo: 32, fireRate: 'Active', type: 'Explosive', weight: 5200, enLoad: 440, special: 'Heavy active homing', category: 'Missile' },
+                { id: 'BML-G1/P29CNT', name: 'BML-G1/P29 CNT', damage: 90, range: 500, ammo: 12, fireRate: 'Multi', type: 'Explosive', weight: 6400, enLoad: 480, lockCount: 10, special: 'Container, releases micro-missiles', category: 'Missile' },
+                { id: 'WR-0999DELIVERYBOY', name: 'WR-0999 DELIVERY BOY', damage: 75, range: 600, ammo: 60, fireRate: 'Multi', type: 'Explosive', weight: 6800, enLoad: 520, lockCount: 15, special: 'Cluster missiles', category: 'Missile' },
+                { id: 'WS-5001SOUP', name: 'WS-5001 SOUP', damage: 65, range: 550, ammo: 72, fireRate: 'Multi', type: 'Explosive', weight: 7200, enLoad: 560, lockCount: 20, special: 'Scatter missiles, area saturation', category: 'Missile' },
+                { id: '45-091JVLNBETA', name: '45-091 JVLN BETA', damage: 420, range: 400, ammo: 18, fireRate: 'Single', type: 'Explosive', weight: 5800, enLoad: 425, special: 'Detonating missile, proximity fuse', category: 'Missile' },
+                { id: 'EL-PW-01TRUENO', name: 'EL-PW-01 TRUENO', damage: 95, range: 500, ammo: 48, fireRate: 'Multi', type: 'Kinetic', weight: 5600, enLoad: 490, lockCount: 8, special: 'Needle missiles, high stagger', category: 'Missile' },
+                { id: 'Vvc-703PM', name: 'Vvc-703PM', damage: 140, range: 650, ammo: 45, fireRate: 'Multi', type: 'Energy', weight: 5800, enLoad: 620, lockCount: 3, special: 'Plasma missiles', category: 'Missile' },
+                { id: 'Vvc-706PM', name: 'Vvc-706PM', damage: 180, range: 700, ammo: 36, fireRate: 'Multi', type: 'Energy', weight: 6600, enLoad: 720, lockCount: 3, special: 'Heavy plasma missiles', category: 'Missile' },
+                { id: 'Vvc-70VPM', name: 'Vvc-70VPM', damage: 105, range: 600, ammo: 60, fireRate: 'Multi', type: 'Energy', weight: 4900, enLoad: 540, lockCount: 4, special: 'Vertical plasma missiles', category: 'Missile' },
+                { id: 'IB-C03W3:NGI006', name: 'IB-C03W3: NGI 006', damage: 320, range: 700, ammo: 24, fireRate: 'Multi', type: 'Coral', weight: 7400, enLoad: 880, lockCount: 2, special: 'Coral missiles, massive AoE', category: 'Missile' },
+                { id: 'BO-044HUXLEY', name: 'BO-044 HUXLEY', damage: 55, range: 400, ammo: 96, fireRate: 'Auto', type: 'Kinetic', weight: 6200, enLoad: 650, lockCount: 6, special: 'Bullet orbit, autonomous targeting', category: 'Missile' },
+                { id: '45-091ORBT', name: '45-091 ORBT', damage: 85, range: 500, ammo: 64, fireRate: 'Auto', type: 'Energy', weight: 5800, enLoad: 710, lockCount: 4, special: 'Laser orbit, continuous fire', category: 'Missile' },
+                { id: 'VP-60LT', name: 'VP-60LT', damage: 120, range: 550, ammo: 48, fireRate: 'Auto', type: 'Energy', weight: 5400, enLoad: 580, special: 'Laser turret, autonomous', category: 'Missile' },
+                { id: 'Vvc-700LD', name: 'Vvc-700LD', damage: 95, range: 450, ammo: 16, fireRate: 'Multi', type: 'Energy', weight: 6400, enLoad: 690, lockCount: 6, special: 'Laser drones, swarm attack', category: 'Missile' }
+            ],
+            shields: [
+                { id: 'SI-24:SU-Q5', name: 'SI-24: SU-Q5', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 3200, enLoad: 520, enCost: 60, special: 'Reduce dmg by 180, 2 round recharge', category: 'Shield' },
+                { id: 'VP-61PS', name: 'VP-61PS', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 3600, enLoad: 580, enCost: 80, special: 'Reduce dmg by 250, 2 round recharge', category: 'Shield' },
+                { id: 'SI-27:SU-R8', name: 'SI-27: SU-R8', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 4800, enLoad: 680, enCost: 140, special: 'Reduce dmg by 450, 3 round recharge', category: 'Shield' },
+                { id: 'VP-61PB', name: 'VP-61PB', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 2800, enLoad: 480, enCost: 50, special: '+3 AC vs 1 attack, 1 round recharge', category: 'Shield' },
+                { id: 'SI-29:SU-TT/C', name: 'SI-29: SU-TT/C', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 3100, enLoad: 520, enCost: 60, special: '+4 AC vs 1 attack, 1 round recharge', category: 'Shield' },
+                { id: 'VE-61PSA', name: 'VE-61PSA', damage: 0, range: 0, ammo: 0, fireRate: 'Bonus Action', type: 'Shield', weight: 5600, enLoad: 780, enCost: 100, special: '+2 AC for 1 round, sustained barrier, 2 round recharge', category: 'Shield' },
+                { id: 'IB-C03W4:NGI028', name: 'IB-C03W4: NGI 028', damage: 0, range: 0, ammo: 0, fireRate: 'Reaction', type: 'Shield', weight: 4900, enLoad: 820, enCost: 120, special: 'Reduce dmg by 350, blocks from ANY direction, 2 round recharge', category: 'Shield' }
+            ]
+        }
     }
 };
 
