@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC6 TTRPG Mech Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">ARMORED CORE 6 TTRPG</h1>
+                <p class="subtitle">MECH ASSEMBLY TERMINAL</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="saveBtn">SAVE BUILD</button>
+                <button class="btn btn-secondary" id="loadBtn">LOAD BUILD</button>
+                <button class="btn btn-primary" id="newBuildBtn">NEW BUILD</button>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Panel: Part Selection -->
+            <div class="panel builder-panel">
+                <h2 class="panel-title">ASSEMBLY</h2>
+
+                <div class="build-name">
+                    <label>AC NAME</label>
+                    <input type="text" id="acName" placeholder="Enter AC designation..." maxlength="30">
+                </div>
+
+                <div class="part-slots">
+                    <!-- Generator -->
+                    <div class="slot-group">
+                        <h3>GENERATOR</h3>
+                        <select id="generator" class="part-select">
+                            <option value="">-- SELECT GENERATOR --</option>
+                        </select>
+                        <div id="generator-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- FCS -->
+                    <div class="slot-group">
+                        <h3>FIRE CONTROL SYSTEM</h3>
+                        <select id="fcs" class="part-select">
+                            <option value="">-- SELECT FCS --</option>
+                        </select>
+                        <div id="fcs-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Booster -->
+                    <div class="slot-group">
+                        <h3>BOOSTER</h3>
+                        <select id="booster" class="part-select">
+                            <option value="">-- SELECT BOOSTER --</option>
+                        </select>
+                        <div id="booster-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Legs -->
+                    <div class="slot-group">
+                        <h3>LEGS</h3>
+                        <select id="legs" class="part-select">
+                            <option value="">-- SELECT LEGS --</option>
+                        </select>
+                        <div id="legs-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Core -->
+                    <div class="slot-group">
+                        <h3>CORE</h3>
+                        <select id="core" class="part-select">
+                            <option value="">-- SELECT CORE --</option>
+                        </select>
+                        <div id="core-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Arms -->
+                    <div class="slot-group">
+                        <h3>ARMS</h3>
+                        <select id="arms" class="part-select">
+                            <option value="">-- SELECT ARMS --</option>
+                        </select>
+                        <div id="arms-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Head -->
+                    <div class="slot-group">
+                        <h3>HEAD</h3>
+                        <select id="head" class="part-select">
+                            <option value="">-- SELECT HEAD --</option>
+                        </select>
+                        <div id="head-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Expansions -->
+                    <div class="slot-group">
+                        <h3>CORE EXPANSION 1</h3>
+                        <select id="expansion1" class="part-select">
+                            <option value="">-- SELECT EXPANSION --</option>
+                        </select>
+                        <div id="expansion1-stats" class="part-stats"></div>
+                    </div>
+
+                    <div class="slot-group">
+                        <h3>CORE EXPANSION 2</h3>
+                        <select id="expansion2" class="part-select">
+                            <option value="">-- SELECT EXPANSION --</option>
+                        </select>
+                        <div id="expansion2-stats" class="part-stats"></div>
+                    </div>
+
+                    <!-- Weapons -->
+                    <div class="slot-group">
+                        <h3>RIGHT ARM WEAPON</h3>
+                        <select id="rightArm" class="part-select">
+                            <option value="">-- SELECT WEAPON --</option>
+                        </select>
+                        <div id="rightArm-stats" class="part-stats"></div>
+                    </div>
+
+                    <div class="slot-group">
+                        <h3>LEFT ARM WEAPON</h3>
+                        <select id="leftArm" class="part-select">
+                            <option value="">-- SELECT WEAPON --</option>
+                        </select>
+                        <div id="leftArm-stats" class="part-stats"></div>
+                    </div>
+
+                    <div class="slot-group">
+                        <h3>RIGHT BACK WEAPON</h3>
+                        <select id="rightBack" class="part-select">
+                            <option value="">-- SELECT WEAPON --</option>
+                        </select>
+                        <div id="rightBack-stats" class="part-stats"></div>
+                    </div>
+
+                    <div class="slot-group">
+                        <h3>LEFT BACK WEAPON</h3>
+                        <select id="leftBack" class="part-select">
+                            <option value="">-- SELECT WEAPON --</option>
+                        </select>
+                        <div id="leftBack-stats" class="part-stats"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Character Sheet -->
+            <div class="panel sheet-panel">
+                <h2 class="panel-title">AC STATUS</h2>
+
+                <!-- Build Validation -->
+                <div class="validation-section">
+                    <div id="validationStatus" class="validation-status"></div>
+                </div>
+
+                <!-- Core Stats -->
+                <div class="stats-section">
+                    <h3>COMBAT STATISTICS</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">TOTAL HP</span>
+                            <span class="stat-value" id="totalHP">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">ARMOR CLASS</span>
+                            <span class="stat-value" id="totalAC">10</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">PRONE RES</span>
+                            <span class="stat-value" id="totalProneRes">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EN System -->
+                <div class="stats-section">
+                    <h3>ENERGY SYSTEM</h3>
+                    <div class="en-display">
+                        <div class="en-bar-container">
+                            <div class="en-bar" id="enBar"></div>
+                            <span class="en-text" id="enText">0 / 0</span>
+                        </div>
+                        <div class="en-buttons">
+                            <button class="btn-small" id="enRechargeBtn">RECHARGE</button>
+                            <button class="btn-small" id="enResetBtn">RESET</button>
+                        </div>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">EN CAPACITY</span>
+                            <span class="stat-value" id="enCapacity">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">EN RECHARGE</span>
+                            <span class="stat-value" id="enRecharge">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">EN SUPPLY</span>
+                            <span class="stat-value" id="enSupply">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">EN OUTPUT</span>
+                            <span class="stat-value" id="enOutput">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">EN LOAD</span>
+                            <span class="stat-value" id="enLoad">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">E-FIREARM SPEC</span>
+                            <span class="stat-value" id="eFirearmSpec">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weight System -->
+                <div class="stats-section">
+                    <h3>WEIGHT MANAGEMENT</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">TOTAL WEIGHT</span>
+                            <span class="stat-value" id="totalWeight">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">LOAD LIMIT</span>
+                            <span class="stat-value" id="loadLimit">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movement -->
+                <div class="stats-section">
+                    <h3>MOBILITY</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">BOOST SPEED</span>
+                            <span class="stat-value" id="boostSpeed">0 ft/turn</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">QB DISTANCE</span>
+                            <span class="stat-value" id="qbDistance">0 ft</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">QB COST</span>
+                            <span class="stat-value" id="qbCost">0 EN</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">ASSAULT BOOST</span>
+                            <span class="stat-value" id="assaultBoost">0 ft/turn</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">FLIGHT SPEED</span>
+                            <span class="stat-value" id="flightSpeed">0 ft/turn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attack Bonuses -->
+                <div class="stats-section">
+                    <h3>TARGETING SYSTEMS</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">CLOSE RANGE</span>
+                            <span class="stat-value" id="closeBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MEDIUM RANGE</span>
+                            <span class="stat-value" id="mediumBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">LONG RANGE</span>
+                            <span class="stat-value" id="longBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MISSILE</span>
+                            <span class="stat-value" id="missileBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">FIREARMS</span>
+                            <span class="stat-value" id="firearmsBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MELEE</span>
+                            <span class="stat-value" id="meleeBonus">+0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">RECOIL CTRL</span>
+                            <span class="stat-value" id="recoilBonus">+0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weapons -->
+                <div class="stats-section">
+                    <h3>ARMAMENT</h3>
+                    <div id="weaponsList" class="weapons-list"></div>
+                </div>
+
+                <!-- Expansions -->
+                <div class="stats-section">
+                    <h3>CORE EXPANSIONS</h3>
+                    <div id="expansionsList" class="expansions-list"></div>
+                </div>
+
+                <!-- Scanning -->
+                <div class="stats-section">
+                    <h3>RECONNAISSANCE</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">SCAN RANGE</span>
+                            <span class="stat-value" id="scanRange">0 ft</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">SCAN DURATION</span>
+                            <span class="stat-value" id="scanDuration">0 sec</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">SYS RECOVERY</span>
+                            <span class="stat-value" id="sysRecovery">+0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

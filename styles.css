@@ -1,0 +1,533 @@
+/* AC6 TTRPG Mech Builder - Cyberpunk Aesthetic */
+
+:root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --accent-color: #ffff00;
+    --bg-dark: #0a0e1a;
+    --bg-panel: #0f1419;
+    --bg-lighter: #1a1f2e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #00ffff33;
+    --error-color: #ff3366;
+    --success-color: #00ff66;
+    --warning-color: #ffaa00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    background-image:
+        linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, .05) 25%, rgba(0, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, .05) 75%, rgba(0, 255, 255, .05) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, .05) 25%, rgba(0, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, .05) 75%, rgba(0, 255, 255, .05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--bg-panel) 0%, #1a2030 100%);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.header-content {
+    flex: 1;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 3px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.btn-primary {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.btn-secondary {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+.btn-small {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+/* Main Layout */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Panels */
+.panel {
+    background: var(--bg-panel);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.builder-panel {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+.sheet-panel {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.builder-panel::-webkit-scrollbar,
+.sheet-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.builder-panel::-webkit-scrollbar-track,
+.sheet-panel::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+.builder-panel::-webkit-scrollbar-thumb,
+.sheet-panel::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Build Name */
+.build-name {
+    margin-bottom: 20px;
+}
+
+.build-name label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.build-name input {
+    width: 100%;
+    padding: 10px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.build-name input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Part Slots */
+.slot-group {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.slot-group h3 {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.part-select {
+    width: 100%;
+    padding: 8px;
+    background: var(--bg-lighter);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.part-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.part-select option {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+.part-stats {
+    margin-top: 10px;
+    padding: 10px;
+    background: var(--bg-lighter);
+    border-left: 3px solid var(--primary-color);
+    font-size: 0.8rem;
+    line-height: 1.8;
+    display: none;
+}
+
+.part-stats.active {
+    display: block;
+}
+
+.part-stats div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.part-stats .stat-name {
+    color: var(--text-secondary);
+}
+
+.part-stats .stat-value {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Validation Section */
+.validation-section {
+    margin-bottom: 20px;
+}
+
+.validation-status {
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-dark);
+}
+
+.validation-error {
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.validation-warning {
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.validation-success {
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* Stats Section */
+.stats-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.stats-section h3 {
+    font-size: 1rem;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: var(--bg-lighter);
+    border-left: 3px solid var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* EN Display */
+.en-display {
+    margin-bottom: 15px;
+}
+
+.en-bar-container {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: var(--bg-lighter);
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.en-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.en-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #000;
+}
+
+.en-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Weapons List */
+.weapons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.weapon-item {
+    padding: 15px;
+    background: var(--bg-lighter);
+    border-left: 3px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.weapon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.weapon-name {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.weapon-slot {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.weapon-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+.weapon-stat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weapon-stat span:first-child {
+    color: var(--text-secondary);
+}
+
+.weapon-stat span:last-child {
+    color: var(--primary-color);
+}
+
+.weapon-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.weapon-ammo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ammo-display {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Expansions List */
+.expansions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.expansion-item {
+    padding: 15px;
+    background: var(--bg-lighter);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.expansion-name {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.expansion-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.expansion-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.expansion-charges {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Empty State */
+.empty-state {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px var(--primary-color); }
+    50% { text-shadow: 0 0 20px var(--primary-color); }
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Utility Classes */
+.text-error { color: var(--error-color); }
+.text-warning { color: var(--warning-color); }
+.text-success { color: var(--success-color); }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--text-secondary); }
