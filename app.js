@@ -480,11 +480,10 @@ class MechBuilder {
         let totalWeight = 0;
         let loadLimit = 0;
 
-        // Calculate total weight
+        // Calculate total weight (excluding legs - they carry the weight, not add to it)
         if (this.currentBuild.generator) totalWeight += this.currentBuild.generator.weight;
         if (this.currentBuild.fcs) totalWeight += this.currentBuild.fcs.weight;
         if (this.currentBuild.booster) totalWeight += this.currentBuild.booster.weight;
-        if (this.currentBuild.legs) totalWeight += this.currentBuild.legs.weight;
         if (this.currentBuild.core) totalWeight += this.currentBuild.core.weight;
         if (this.currentBuild.rightArms) totalWeight += this.currentBuild.rightArms.weight;
         if (this.currentBuild.leftArms) totalWeight += this.currentBuild.leftArms.weight;
